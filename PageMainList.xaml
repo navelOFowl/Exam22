@@ -13,7 +13,8 @@
             <RowDefinition Height="130"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-            <Button Name="BUTAddToCart" HorizontalAlignment="Left" Height="70" FontSize="17" Margin="30" Click="BUTAddToCart_Click">Добавить в корзину</Button>
+        <Button Name="BUTAddToCart" HorizontalAlignment="Left" Height="70" FontSize="17" Margin="30" Click="BUTAddToCart_Click">Добавить в корзину</Button>
+        <Button Name="BUTToCart" HorizontalAlignment="Left" Height="70" FontSize="17" Margin="200 0" Click="BUTToCart_Click">В корзину</Button>
         <StackPanel>
             <StackPanel HorizontalAlignment="Right" Width="300" Height="100" Margin="15">
                 <TextBlock Name="TBOrderCount" FontSize="18" Text="Количество выбранных книг: "></TextBlock>

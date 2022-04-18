@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,20 +27,33 @@ namespace Exam22
             LVBooks.ItemsSource = ClassBase.DB.Books.ToList();
         }
 
-        WindowCartList win;
+        List<Books> BooksCart = new List<Books>();
         private void BUTAddToCart_Click(object sender, RoutedEventArgs e)
         {
-            var selectedList = LVBooks.SelectedItems;
-            TBOrderCount.Text = "Количество выбранных книг: " + selectedList.Count;
-            int totalSum = 0;
-
-            foreach(Books book in selectedList)
+            try
             {
-                totalSum += book.Cost;
-            }
-            TBTotalCost.Text = "Стоимость покупки: " + totalSum;
+                var selectedList = LVBooks.SelectedItems;
+                TBOrderCount.Text = "Количество выбранных книг: " + selectedList.Count;
+                int totalSum = 0;
 
-            
+                foreach (Books book in selectedList)
+                {
+                    totalSum += book.Cost;
+                    BooksCart.Add(book);
+                }
+                TBTotalCost.Text = "Стоимость покупки: " + totalSum;
+                //TBDiscount.Text = "Размер скидки: " + Tools.Discount(BooksCart.Count, totalSum); Выдает ошибку при попытке вызова
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка");
+            }
+        }
+
+        private void BUTToCart_Click(object sender, RoutedEventArgs e)
+        {
+            WindowCartList win = new WindowCartList(BooksCart);
+            win.ShowDialog();
         }
     }
 }

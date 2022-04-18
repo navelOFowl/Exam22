@@ -7,6 +7,45 @@
         mc:Ignorable="d"
         Title="WindowCartList" Height="450" Width="800">
     <Grid>
-        
+        <ListView Name="LVCart" Grid.Row="1" SelectionMode="Multiple">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Name="IMGBook" Source="{Binding img}" Height="100" Width="100"></Image>
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Название: "></TextBlock>
+                                <TextBlock Text="{Binding Title}"></TextBlock>
+                                <TextBlock Text=" | "></TextBlock>
+                                <TextBlock Text="Название: "></TextBlock>
+                                <TextBlock Text="{Binding Genre}"></TextBlock>
+                            </StackPanel>
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Автор: "></TextBlock>
+                                    <TextBlock Text="{Binding Autor}"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Цена: "></TextBlock>
+                                    <TextBlock Text="{Binding Cost}"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Количество в магазине: "></TextBlock>
+                                    <TextBlock Text="{Binding CountShop}"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Количество на складе: "></TextBlock>
+                                    <TextBlock Text="{Binding CountStock}"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Описание: "></TextBlock>
+                                    <TextBlock Text="{Binding Description}" TextWrapping="Wrap" Width="590"></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ClassLibrary;
 
 namespace Exam22
 {
@@ -19,9 +20,11 @@ namespace Exam22
     /// </summary>
     public partial class WindowCartList : Window
     {
-        public WindowCartList()
+        public WindowCartList(List<Books> booksList)
         {
             InitializeComponent();
+            LVCart.Items.Clear();
+            LVCart.ItemsSource = booksList;
         }
     }
 }
